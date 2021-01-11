@@ -1,14 +1,16 @@
 # vim: ts=2 sw=2 ft=sql et
-# The above line, is file-specific configuration for vim
-# add `set modeline` to ~/.vimrc.
+# The above line is a file-specific configuration for vim
+# If not working: add `set modeline` to ~/.vimrc.
 
 
-## Setting up MySQL database for Daris.js
+
+
+_______ SETTING UP MYSQL DATABASE FOR `DARIS.JS` _______
 	
 You need to enable Auth_socket for MySQL to allow connection
 to MySQL from app.js.
 
-After that, execute the following in MySQL shell:
+After that, execute the following in MySQL shell to setup the DB:
 
 ```
 create database `daris`;
@@ -17,8 +19,6 @@ alter user 'root'@'localhost' \
 	by 'Password@2'; #improve security at will !!
 
 
-
-# DARIS.js database structure:
 
 use `daris`; create table `daris_ques`
 (
@@ -54,6 +54,28 @@ use `daris`; create table `daris_users`
 ```
 
 
-## `daris_ans`.`ans_id` = int(str(ques_id) + "_" + str(nth-answer))
-## `daris_users`.`asked_ques_id`: "space-separated ques_id enclosed
-## as a VARCHAR string."
+_______ MORE INFO ON THE DATABASE _______
+
+   [tableName].[columnName]      [description]
+-- daris_ans.ans_id: 
+  ans_id should be: ques_id + underscore + nth-answer,
+  like: ans_id = 1234_3, meaning: 3rd answer of ques_id 1234.
+
+-- daris_users`.`asked_ques_id`:
+  space-separated ques_id enclosed as a VARCHAR string.
+
+
+
+
+_______ CODE STYLE _______
+_
+(These are simple rules, so I put them here)
+
+  - When using `require`, do name the variables in CAPS, like:
+    `const QS = require('querystring');`
+    Otherwise, don't use ALL CAPS for variable-naming
+
+  - With due respect, you don't have to make your code look smart.
+    Remember: [CONSISTENCY] is greater than [Saving few keystrokes]
+    Just make sure that, head doesn't start spinning when anyone
+    sees your code.
