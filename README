@@ -11,7 +11,6 @@ to MySQL from app.js.
 After that, execute the following in MySQL shell:
 
 ```
-
 create database `daris`;
 alter user 'root'@'localhost' \
 	identified with mysql_native_password \ 
@@ -51,7 +50,6 @@ use `daris`; create table `daris_users`
     `answered_ans_id` VARCHAR NOT NULL,
     PRIMARY KEY (`user_id`)
 ) ENGINE = MyISAM;
-
 
 ```
 
