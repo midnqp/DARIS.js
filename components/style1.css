@@ -1,0 +1,13 @@
+tr{
+	font-family: Hack, monospace; /*border:1px solid black;*/font-size:13px; line-height:12px; 
+}
+/*table{border-collapse:collapse;}*/
+
+.sectheader {
+	font-family:'Liberation Mono'; border:1px solid black; padding:0px 16px ; 
+	line-height:40px; width:max-content; text-align:center; 
+}
+
+.sectheader:hover {	color:white; background-color:black;	}
+.no-padmarg { padding:0px 0px 0px 0px; margin:0px 0px 0px 0px;	}
+

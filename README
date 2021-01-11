@@ -1,0 +1,61 @@
+# vim: ts=2 sw=2 ft=sql et
+# The above line, is file-specific configuration for vim
+# add `set modeline` to ~/.vimrc.
+
+
+## Setting up MySQL database for Daris.js
+	
+You need to enable Auth_socket for MySQL to allow connection
+to MySQL from app.js.
+
+After that, execute the following in MySQL shell:
+
+```
+
+create database `daris`;
+alter user 'root'@'localhost' \
+	identified with mysql_native_password \ 
+	by 'Password@2'; #improve security at will !!
+
+
+
+# DARIS.js database structure:
+
+use `daris`; create table `daris_ques`
+(
+    `ques_id` INT NOT NULL auto_increment,
+    `ques_user_id` INT NOT NULL,
+    `ques_title` VARCHAR(100) NOT NULL,
+    `ques_desc` VARCHAR(1500) NOT NULL,
+    `ques_up` INT NOT NULL,
+    `ques_down` INT NOT NULL,
+    `ques_time` DATETIME NOT NULL,
+    PRIMARY KEY (`ques_id`)
+) ENGINE = MyISAM;
+
+use `daris`; create table `daris_ans`
+(
+    `ans_id` INT NOT NULL auto_increment,
+    `ans_user_id` INT NOT NULL,
+    `ans_desc` VARCHAR(1500) NOT NULL,
+    `ans_up` INT NOT NULL,
+    `ans_down` INT NOT NULL,
+    `ans_time` DATETIME NOT NULL,
+    PRIMARY KEY (`ans_id`)
+) ENGINE = MyISAM;
+
+use `daris`; create table `daris_users`
+(
+    `user_id` INT NOT NULL auto_increment,
+    `asked_ques_id` VARCHAR NOT NULL,
+    `answered_ans_id` VARCHAR NOT NULL,
+    PRIMARY KEY (`user_id`)
+) ENGINE = MyISAM;
+
+
+```
+
+
+## `daris_ans`.`ans_id` = int(str(ques_id) + "_" + str(nth-answer))
+## `daris_users`.`asked_ques_id`: "space-separated ques_id enclosed
+## as a VARCHAR string."

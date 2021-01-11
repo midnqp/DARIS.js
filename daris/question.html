@@ -1,0 +1,113 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css">
+	<link rel="stylesheet" href="/components/style1.css">
+	<style>
+		 pre {word-wrap:normal; background-color: #b0b0b033; color: white; padding:0px; margin:0px;} 
+		 .answers_code {color:white; background-color: grey;}
+		 #preview pre {background-color:#ff46468a; }
+	</style>
+	<title>DARIS</title>
+</head>
+<body>
+	<script src=/components/navbar.js></script>
+	<div style="margin: 70px 0px 0px 0px;">
+		<h1>[questitle]</h1>
+		[answer]
+		<form id=writeans method=post style="margin:100px 0px;" >
+			<textarea class=no-padmarg name=ans form=writeans style="width:40rem; height:275px;"></textarea>
+			<input style="display:block;" type=submit value="Answer!">
+		</form>
+	</div>
+
+
+
+	<script>
+		function onclick_edit(element) {
+      preview = document.createElement("section");
+      preview.setAttribute("style", "position: fixed; bottom:0px; right:0px; background-color:#a52a2a6b;  color:white; height:316px; width:600px; overflow:auto;");
+      preview.setAttribute("id", "preview");
+
+      document.body.appendChild(preview);
+//      console.log('preview window -- done');
+
+
+			ansSectionId = element.id.replace("edit", "answer");
+			ansSection = document.getElementById(ansSectionId);	
+			if (ansSection.style.display !== 'none') { ansSection.style.display = 'none';} 
+
+			editableAns = document.createElement("textarea");
+			editableAns.style.margin = "0px 0px 4px 0px";
+			editableAns.style.width = "50rem";
+			editableAns.style.display = "block";
+			preview.innerHTML = editableAns.innerHTML = ansSection.innerHTML;
+
+			editableAns.id = 'e_'+ansSectionId;
+			editableAns.setAttribute("oninput", "onchange_answer(this)");
+//			editableAns.setAttribute("onkeydown", "textarea_tab(this)");
+			 //this function enables tabbing in editing.
+
+	//		console.log(editableAns.id);
+
+			document.getElementById(ansSectionId.replace("answer", "contAns")).prepend(editableAns);
+
+
+			 textarea_tab(editableAns.id);
+		}
+
+
+
+		function onchange_answer(el) {
+			if (el.value.includes('<pre>')) {
+				console.log('WHATEVER GIVEN WAS:  '+el.value.replace(/\n/g, '<br>'));
+				
+				MainelValue = el.value.replace(/\n/g, '<br>');
+
+				within_pre = MainelValue.match(new RegExp('<pre>'+'(.*)'+'</pre>'))[1];
+				el_value = sanitizer_entity_fy(within_pre);
+				previewableThing = MainelValue.replace(within_pre, el_value);
+				//console.log('whatever given was:'+el.value);
+			} 
+			else { previewableThing = el.value;}
+
+			console.log('sanitized/unsanitized value: '+previewableThing);
+			preview = document.getElementById('preview');
+			preview.innerHTML = previewableThing; 
+//			console.log('onchange_answer was triggered!');
+		}
+
+
+
+		function sanitizer_entity_fy(text) {
+			text = text.replaceAll("<br>", "\n");
+			text = text.replaceAll("<", "&lt;"); 
+			text = text.replaceAll(">", "&gt;");
+			text = text.replaceAll("asdf", "gibberish");
+			
+		//	console.log('OKAY: sanitized version looks like this: '+text);
+			return text;
+		}
+
+
+		function textarea_tab(el) { console.log('the id is: '+el);
+			document.getElementById(el).addEventListener('keydown', function(e) {
+  if (e.key == 'Tab') {
+    e.preventDefault();
+    var start = this.selectionStart;
+    var end = this.selectionEnd;
+
+    // set textarea value to: text before caret + tab + text after caret
+    this.value = this.value.substring(0, start) +
+      "\t" + this.value.substring(end);
+
+    // put caret at right position again
+    this.selectionStart =
+      this.selectionEnd = start + 1;
+  }
+});
+		} 
+	</script>
+</body>
+</html>
+
