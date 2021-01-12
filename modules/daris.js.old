@@ -1,7 +1,8 @@
 module.exports = {
 	index:function(response, request, fs, mysqlconn, content)  { 
-		fs.readFile('./daris/index.html', {encoding: 'utf-8'} ,function(error, content) {
+		fs.readFile('./daris/index.html', {encoding: 'utf-8'} , (error, content)=>{
       if (error) throw error;
+
       mysqlconn("select * from daris_ques order by ques_up desc", (result)=>{
         var trques = "<table><tbody>";
         for(let i=0; i<result.length; i++) {

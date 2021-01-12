@@ -1,6 +1,13 @@
+_______ Severely strongly recommended ALHAMD Development Environment (ALDE) for Node.js _______
+
 # vim: ts=2 sw=2 ft=sql et
 # The above line is a file-specific configuration for vim
 # If not working: add `set modeline` to ~/.vimrc.
+
+# [Recommended] vim-airline
+# [Strongly Recommended] vim-youcompleteme (requires Vim8.1.2269+)
+# [Strongly Recommended] For Node.js syntax & your custom library 
+# autocompletion: `npm i --save-dev @types/node`
 
 
 
@@ -68,14 +75,34 @@ _______ MORE INFO ON THE DATABASE _______
 
 
 _______ CODE STYLE _______
-_
+
 (These are simple rules, so I put them here)
 
   - When using `require`, do name the variables in CAPS, like:
     `const QS = require('querystring');`
-    Otherwise, don't use ALL CAPS for variable-naming
+    Otherwise, never use ALL CAPS for variable-naming
+    
+    Name of modules for rendering to View may have underscore,
+    like: in `DarisMainServer.js` View modules are named "DARIS_INDEX",
+    "DARIS_QUESTION", "DARIS_ANSWER".
+
+  - We don't have to do OOP stuffs, like having separate files 
+    for every single class. We can have long files. 
+    Remember: "Do one thing (in a file), do it well." - Unix
+    Like: have one single `module/ui_components/index.js` file,
+    with the only responsibility to render the homepage. 
 
   - With due respect, you don't have to make your code look smart.
     Remember: [CONSISTENCY] is greater than [Saving few keystrokes]
+    Remember: "There should be (exactly) 1 way to do something - most
+    efficiently." - Rob Pike (Golang creator; quote modified)
     Just make sure that, head doesn't start spinning when anyone
     sees your code.
+
+  - Function & variable names shall not be cryptic. Function names 
+    shall have "_" (underscore), like: "exec_mysql(sql, callback)", 
+    "Display_Hot_Questions()".
+    
+    Variable names should be like: "IndexHTML", "mysqlCreds". If you
+    do need to use abbreviated name, do have comment beside saying the
+    elaboration.

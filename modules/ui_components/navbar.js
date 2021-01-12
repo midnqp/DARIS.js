@@ -1,5 +1,9 @@
+// vim: ft=html et ts=2 sw=2
 document.write(`
-	<style>:root {--nav-height:50px;}
+	<style>
+  :root {
+    --nav-height:50px;
+  }
 	#logo-name:hover {background-color:#414141;}
 	</style>
 
@@ -10,7 +14,7 @@ document.write(`
 		var navTitle = document.getElementById('logo-name');
 		var dir = window.location.pathname.toUpperCase();	
 		var a = dir.slice(0, dir.length-1).replaceAll("/", "&nbsp;>&nbsp;");
-		navTitle.innerHTML = "&nbsp;HAMD.EVERYTHING"+a;
+		navTitle.innerHTML = "&nbsp;DARIS"+a;
 
 /*		nam = {
 			'/daris/':'DARIS',

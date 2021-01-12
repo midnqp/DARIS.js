@@ -13,8 +13,8 @@ require('http').createServer(NodejsServer).listen(8000);
 
 function NodejsServer(request, response) {
 	var filePath = '.' + request.url;
-	//if (filePath == './') { filePath = './index.html'; }
 	console.log('REQUESTED FILEPATH ' + filePath);
+	
 	var fileExtension = String(path.extname(filePath)).toLowerCase();
 	var contentType = general.mime_type(fileExtension);
 
