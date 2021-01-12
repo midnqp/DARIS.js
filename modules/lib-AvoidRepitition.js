@@ -27,6 +27,7 @@ module.exports = {
         '.html': 'text/html',
         '.js': 'text/javascript',
         '.css': 'text/css',
+				'.ico': 'image/x-icon',
         '.json': 'application/json',
         '.png': 'image/png',
         '.jpg': 'image/jpg',

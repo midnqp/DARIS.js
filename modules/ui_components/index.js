@@ -17,7 +17,7 @@ module.exports = {
 
 			LIBAR.exec_mysql("SELECT * FROM daris_ques ORDER BY ques_up DESC", Render_Trending_Questions);
 
-			function Render_Hot_Questions(sql_results) {
+			function Render_Trending_Questions(sql_results) {
 				var trQues = "<table><tbody>";		// Trending Questions
 				for (let i=0; i < sql_results.length; i++) {
 					trQues += "<tr><td>+" + sql_results[i].quesup + "&nbsp;&nbsp;</td>" + 

@@ -1,13 +1,41 @@
+# vim: ts=2 sw=2 ft=sql et
+
+
+-----------------------------------------------------------
+                                                        
+     #                  "                  "         
+  mmm#   mmm    m mm   mm     mmm        mmm    mmm  
+ #" "#  "   #   #   "   #    #   "         #   #   " 
+ #   #  m"""#   #       #     """m         #    """m 
+ "#m##  "mm"#   #     mm#mm  "mmm"    #    #   "mmm" 
+                                           #         
+                                         ""          
+-----------------------------------------------------------
+
+Welcome to a Node.js implementation of the DARIS.concept. This project is a proof-of-concept
+of DARIS.concept (https://github.com/midnqp/DARIS.concept), demonstrating a set of 
+deeply-beneficial design architectures, and a more meaningful opposition to OOP.
+
+This implementation in Node.js may be a stern reply to it being attributed with "callback hell".
+So, a fun slogan would be: "callback done right".
+
+
+Built with dexterity, using:
+ALHAMDJS - A vanilla framework for people who "hate frameworks with a passion". Find your 
+           shelter at `https://github.com/midnqp/alhamdjs-vanilla`
+
+
+
+
 _______ Severely strongly recommended ALHAMD Development Environment (ALDE) for Node.js _______
 
-# vim: ts=2 sw=2 ft=sql et
-# The above line is a file-specific configuration for vim
+# The first line is a file-specific configuration for vim
 # If not working: add `set modeline` to ~/.vimrc.
 
 # [Recommended] vim-airline
 # [Strongly Recommended] vim-youcompleteme (requires Vim8.1.2269+)
-# [Strongly Recommended] For Node.js syntax & your custom library 
-# autocompletion: `npm i --save-dev @types/node`
+# [Strongly Recommended] Enable autocompletion for Node.js syntax & your custom library: 
+# `npm i --save-dev @types/node`
 
 
 

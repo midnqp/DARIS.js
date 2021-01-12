@@ -2,12 +2,12 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css">
-	<link rel="stylesheet" href="/components/style1.css">
-	<title>DARIS</title>
+	<link rel="stylesheet" href="/modules/ui_components/style1.css">
+	<title>DARIS - The Simpler StackOverFlow</title>
 
 </head>
 <body>
-	<script src=/components/navbar.js></script>
+	<script type="text/javascript" src="/modules/ui_components/navbar.js"></script>
 	<div id=main style="margin:50px 0px 0px 0px;">
 		<form id=main-search style="width:30rem; margin:100px auto;">
 			<input type=text placeholder="Search your question" style="width:23rem;">
@@ -20,7 +20,7 @@
 		</style>	
 		<section style="width:400px; display:inline-block;">
 			<h2 class="sectheader" style="width:366px;">Trending Questions</h2>
-			[trending_questions]
+			{% Trending Questions %}	
 		</section>
 		<section style="width:400px;display:inline-block;">
 			<h2 class="sectheader" style="width:366px;">Most Recent Questions</h2>
