@@ -15,5 +15,9 @@ function Daris_Main_Server(req, res) {
 	if (req.url === "/") {
 		DARIS_INDEX.render_index_page(req, res);
 	}
+	else {
+		res.writeHead(404);
+		res.end();
+	}
 	console.log(req.url);
 }
