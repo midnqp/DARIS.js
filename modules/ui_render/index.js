@@ -1,3 +1,8 @@
+/* index.js
+ * Do everything you need to render the homepage here 
+ */
+
+
 const MYSQL = require('mysql');
 const FS = require('fs');
 
@@ -5,9 +10,7 @@ const LIBAR = require('../lib-AvoidRepitition.js');
 
 module.exports = {
 
-	render_index_page: function(req, res) {
-	/* Do everything you need to render the homepage here */
-
+	Render_Index_Page: function(req, res) {	
 		// using "./" in respect to DarisMainServer.js
 		FS.readFile('./daris/index.html', {encoding: 'utf-8'}, 
 		(err, indexHTML) => {

@@ -1,4 +1,4 @@
-# Sorry to say, but you need to Zoom out this page a little bit to read this README.
+# Sorry to say: You need to zoom out this page a bit to indent this README: 80%
 
 # vim: ts=2 sw=2 ft=sql et
 
@@ -6,10 +6,10 @@
 -----------------------------------------------------------
                                                         
      #                  "                  "         
-     #   mmm    m mm   mm     mmm        mmm    mmm  
+     #   mmm    mmmm   mm     mmm        mmm    mmm  
  #####      #   #       #    #   "         #   #   " 
  #   #  m"""#   #       #     """m         #    """m 
- "#m##  "mm"#   #     mm#mm  "mmm"    #    #   "mmm" 
+ "#m##  "mm"#   #      mmm   "mmm"    #    #   "mmm" 
                                            #         
                                          ""          
 -----------------------------------------------------------
@@ -24,8 +24,14 @@ So, a fun slogan would be: "callback done right".
 
 Built with dexterity, using:
 ALHAMDJS - A Node.js vanilla framework for people who "hate frameworks with a passion". Find 
-           your home at `https://github.com/midnqp/DARIS.concept`
+           your home at `https://github.com/midnqp/DARIS.concept`. There you can find materials 
+           to   -- project structure
+                -- design principles
+                -- detailed information, like: this project's database design
+           So, submit issues/ideas/opinions there...just like: ECMAScript.
 
+Have fun with writing code here! Any contribution is welcome - this is a immensely paramount 
+project.
 
 
 
@@ -34,10 +40,8 @@ _______ GETTING STARTED  _______
 [[ STEP 1 ]  SETTING UP MYSQL DATABASE FOR `DARIS.JS`  ]
 
 
-You need to enable Auth_socket for MySQL to allow connection
-to MySQL from Node.js.
-
-After that, execute the following in MySQL shell to setup the DB:
+You need to enable Auth_socket for MySQL. Then, execute(copy/paste) the following in 
+MySQL shell to setup the DB:
 
 ```
 create database `daris`;
