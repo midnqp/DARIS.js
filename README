@@ -1,3 +1,5 @@
+# Sorry to say, but you need to Zoom out this page a little bit to read this README.
+
 # vim: ts=2 sw=2 ft=sql et
 
 
@@ -21,29 +23,19 @@ So, a fun slogan would be: "callback done right".
 
 
 Built with dexterity, using:
-ALHAMDJS - A vanilla framework for people who "hate frameworks with a passion". Find your 
-           shelter at `https://github.com/midnqp/alhamdjs-vanilla`
+ALHAMDJS - A Node.js vanilla framework for people who "hate frameworks with a passion". Find 
+           your home at `https://github.com/midnqp/DARIS.concept`
 
 
 
 
-_______ Severely strongly recommended ALHAMD Development Environment (ALDE) for Node.js _______
+_______ GETTING STARTED  _______
 
-# The first line is a file-specific configuration for vim
-# If not working: add `set modeline` to ~/.vimrc.
-
-# [Recommended] vim-airline
-# [Strongly Recommended] vim-youcompleteme (requires Vim8.1.2269+)
-# [Strongly Recommended] Enable autocompletion for Node.js syntax & your custom library: 
-# `npm i --save-dev @types/node`
+[[ STEP 1 ]  SETTING UP MYSQL DATABASE FOR `DARIS.JS`  ]
 
 
-
-
-_______ SETTING UP MYSQL DATABASE FOR `DARIS.JS` _______
-	
 You need to enable Auth_socket for MySQL to allow connection
-to MySQL from app.js.
+to MySQL from Node.js.
 
 After that, execute the following in MySQL shell to setup the DB:
 
@@ -88,6 +80,12 @@ use `daris`; create table `daris_users`
 
 ```
 
+[[ STEP 2 ] FINALLY, STARTING SERVER ]
+
+
+Do this once: `npm i package.json`
+To start server: `nodemon DarisMainServer.js`
+
 
 _______ MORE INFO ON THE DATABASE _______
 
@@ -98,6 +96,16 @@ _______ MORE INFO ON THE DATABASE _______
 
 -- daris_users`.`asked_ques_id`:
   space-separated ques_id enclosed as a VARCHAR string.
+
+
+
+
+_______ `ALHAMD Dev Environment` (ALDenv) FOR Node.js _______
+
+# [Recommended] vim-airline
+# [Strongly Recommended] vim-youcompleteme (requires Vim 8.1.2269+)
+# [Strongly Recommended] Enable autocompletion for Node.js syntax & your custom library: 
+# `npm i --save-dev @types/node`
 
 
 
