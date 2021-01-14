@@ -19,7 +19,7 @@ proof-of-concept for ALHAMD*, demonstrating a deeply-beneficial design architect
 This implementation in Node.js may be a stern reply to it being attributed with "callback hell". So, a fun slogan would be: "callback done right".
 
 
-[ *ALHAMD ] - A vanilla-framework designed for those who "hate frameworks with a passion". This project is an implementation of that framework. 
+[ *ALHAMD ] - A vanilla-framework designed for those who "hate frameworks with a passion". This project is an implementation of that framework. (https://github.com/midnqp/alhamd-vanilla) 
 
 [ *DARIS.concept ] - (https://github.com/midnqp/DARIS.concept) There you can find materials to:
                 -- project code structure
@@ -115,7 +115,6 @@ _______ CODE STYLE _______
             `render_questionwrite_page: ()=>{...}`
             `exec_mysql(sql, callback_func) {...}`
   modules/libs --- may have underscore, ALL CAPS. Must be consistent.
-
             `const LIBAR = require('./modules/lib-avoidrepitition.js')`
             `const FS = require('fs');`
             `const DARIS_QUESTION_VIEW = require('./modules/rendering/question_view.js');`
