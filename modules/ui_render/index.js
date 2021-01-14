@@ -1,4 +1,4 @@
-/* index.js
+/* index.js																																												#
  * Do everything you need to render the homepage here 
  */
 
@@ -10,7 +10,7 @@ const LIBAR = require('../lib-AvoidRepitition.js');
 
 module.exports = {
 
-	Render_Index_Page: function(req, res) {	
+	Render_Index_Page: (req, res)=>{	
 		// using "./" in respect to DarisMainServer.js
 		FS.readFile('./daris/index.html', {encoding: 'utf-8'}, 
 		(err, indexHTML) => {

@@ -13,7 +13,7 @@ require('http').createServer(Daris_Main_Server).listen(8000);
 
 function Daris_Main_Server(req, res) {
 	console.log(req.url);
-	filePath = req.url;
+	irequrl = req.url;		// indexible req url for FS, and HTML 
 	if (filePath[0] !== ".") { filePath = `.${req.url}`; }
 
 
@@ -27,7 +27,7 @@ function Daris_Main_Server(req, res) {
 	}
 
 
-	else if (req.url.) { 
+	else if (req.url.slice(0, ) === "/") { 
 		FS.readFile(filePath, (err, fileContent)=>{
 			
 			else {

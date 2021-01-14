@@ -1,6 +1,5 @@
-# Sorry to say: You need to zoom out this page a bit to indent this README: 80%
-
-# vim: ts=2 sw=2 ft=sql et
+#                                                                          #
+# vim: ts=2 sw=2 ft=sql et                                                  
 
 
 -----------------------------------------------------------
@@ -14,24 +13,22 @@
                                          ""          
 -----------------------------------------------------------
 
-Welcome to a Node.js implementation of the DARIS.concept. This project is a proof-of-concept
-of DARIS.concept (https://github.com/midnqp/DARIS.concept), demonstrating a set of 
-deeply-beneficial design architectures, and a more meaningful opposition to OOP.
+Welcome to a Node.js implementation of DARIS.concept*. This project is a 
+proof-of-concept for ALHAMD*, demonstrating a deeply-beneficial design architecture, and a more meaningful opposition to OOP.
 
-This implementation in Node.js may be a stern reply to it being attributed with "callback hell".
-So, a fun slogan would be: "callback done right".
+This implementation in Node.js may be a stern reply to it being attributed with "callback hell". So, a fun slogan would be: "callback done right".
 
 
-Built with dexterity, using:
-ALHAMDJS - A Node.js vanilla framework for people who "hate frameworks with a passion". Find 
-           your home at `https://github.com/midnqp/DARIS.concept`. There you can find materials 
-           to   -- project structure
+[ *ALHAMD ] - A vanilla-framework designed for those who "hate frameworks with a passion". This project is an implementation of that framework. 
+
+[ *DARIS.concept ] - (https://github.com/midnqp/DARIS.concept) There you can find materials to:
+                -- project code structure
                 -- design principles
-                -- detailed information, like: this project's database design
-           So, submit issues/ideas/opinions there...just like: ECMAScript.
+                -- any further detailed info
+So, submit ideas/opinions there...just like ECMAScript, HTML, and W3C.
+         
 
-Have fun with writing code here! Any contribution is welcome - this is a immensely paramount 
-project.
+Be sure to have fun contributing code here! Any contribution and constructive discussion is warmly welcome - this is an immensely paramount project.
 
 
 
@@ -40,8 +37,7 @@ _______ GETTING STARTED  _______
 [[ STEP 1 ]  SETTING UP MYSQL DATABASE FOR `DARIS.JS`  ]
 
 
-You need to enable Auth_socket for MySQL. Then, execute(copy/paste) the following in 
-MySQL shell to setup the DB:
+You need to enable Auth_socket for MySQL. Then, execute(copy/paste) the following in MySQL shell to setup the DB:
 
 ```
 create database `daris`;
@@ -87,19 +83,9 @@ use `daris`; create table `daris_users`
 [[ STEP 2 ] FINALLY, STARTING SERVER ]
 
 
-Do this once: `npm i package.json`
-To start server: `nodemon DarisMainServer.js`
+Do this once: `$ npm i package.json`
+To start server: `$ nodemon DarisMainServer.js`
 
-
-_______ MORE INFO ON THE DATABASE _______
-
-   [tableName].[columnName]      [description]
--- daris_ans.ans_id: 
-  ans_id should be: ques_id + underscore + nth-answer,
-  like: ans_id = 1234_3, meaning: 3rd answer of ques_id 1234.
-
--- daris_users`.`asked_ques_id`:
-  space-separated ques_id enclosed as a VARCHAR string.
 
 
 
@@ -108,8 +94,8 @@ _______ `ALHAMD Dev Environment` (ALDenv) FOR Node.js _______
 
 # [Recommended] vim-airline
 # [Strongly Recommended] vim-youcompleteme (requires Vim 8.1.2269+)
-# [Strongly Recommended] Enable autocompletion for Node.js syntax & your custom library: 
-# `npm i --save-dev @types/node`
+# [Strongly Recommended] Enable autocompletion for Node.js syntax & your 
+  custom library: `$ npm i --save-dev @types/node`
 
 
 
@@ -118,31 +104,42 @@ _______ CODE STYLE _______
 
 (These are simple rules, so I put them here)
 
-  - When using `require`, do name the variables in CAPS, like:
-    `const QS = require('querystring');`
-    Otherwise, never use ALL CAPS for variable-naming
-    
-    Name of modules for rendering to View may have underscore,
-    like: in `DarisMainServer.js` View modules are named "DARIS_INDEX",
-    "DARIS_QUESTION", "DARIS_ANSWER".
 
-  - We don't have to do OOP stuffs, like having separate files 
-    for every single class. We can have long files. 
-    Remember: "Do one thing (in a file), do it well." - Unix
-    Like: have one single `module/ui_components/index.js` file,
-    with the only responsibility to render the homepage. 
+[[ Naming ]]
+  vars --- no underscore, may have capital letter. Must be consistent.
+            `let IndexHTML = ...;`
+            `var trQues = ...;    // HTML of trending questions`
+  func --- must have underscores, no capital letters. Must be consistent.
+            `render_index_page: ()=>{...}`
+            `render_questionview_page: ()=>{...}`
+            `render_questionwrite_page: ()=>{...}`
+            `exec_mysql(sql, callback_func) {...}`
+  modules/libs --- may have underscore, ALL CAPS. Must be consistent.
 
-  - With due respect, you don't have to make your code look smart.
-    Remember: [CONSISTENCY] is greater than [Saving few keystrokes]
-    Remember: "There should be (exactly) 1 way to do something - most
-    efficiently." - Rob Pike (Golang creator; quote modified)
-    Just make sure that, head doesn't start spinning when anyone
-    sees your code.
+            `const LIBAR = require('./modules/lib-avoidrepitition.js')`
+            `const FS = require('fs');`
+            `const DARIS_QUESTION_VIEW = require('./modules/rendering/question_view.js');`
+  file names --- consistence & speciality
+            `DarisMainServer.js`
+            `daris/question/question_view.js`
+            `daris/question/question_write.js` 
+            `modules/lib-avoidrepitition.js`
 
-  - Function & variable names shall not be cryptic. Function names 
-    shall have "_" (underscore), like: "exec_mysql(sql, callback)", 
-    "Display_Hot_Questions()".
-    
-    Variable names should be like: "IndexHTML", "mysqlCreds". If you
-    do need to use abbreviated name, do have comment beside saying the
-    elaboration.
+
+[[ Each File ]]
+  * Comment out the max line width, like this README, in the first line 
+    of each file. Preferably 100 columns at max, and each line must not 
+    be longer than that.
+  * No, do not split a feature/module too much. 
+  * A file can be big, it "must do one thing, and do it properly"
+          `daris/profile/profile.html`
+          `daris/question/view.html`
+          `daris/navbar.js`
+
+
+[[ Ethics ]]
+  * CONSISTENCY is much more important than SAVING FEW KEYSTROKES.
+    And you can quote me on this.
+  * "There should be (exactly) 1 way to do something - most efficiently." 
+                                - Rob Pike (Golang creator; quote modified)
+
