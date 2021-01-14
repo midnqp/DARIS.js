@@ -1,49 +1,48 @@
+/* DarisMainServer.js
+**/
+
 const QS = require('querystring');
 const FS = require('fs');
 const PATH = require('path');
 const MYSQL = require('url');
 
-const LIBAR = require('./modules/lib-AvoidRepitition.js');
-const DARIS_INDEX = require('./modules/ui_components/index.js');
+const LIBAR = require('./modules/lib-avoidrepitition.js');
+const DARIS_INDEX = require('./modules/rendering/index.js');
 
 
-require('http').createServer(Daris_Main_Server).listen(8000);
+require('http').createServer(daris_main_server).listen(8000);
 
 
 
-function Daris_Main_Server(req, res) {
+function daris_main_server(req, res) {
 	console.log(req.url);
-	irequrl = req.url;		// indexible req url for FS, and HTML 
-	if (filePath[0] !== ".") { filePath = `.${req.url}`; }
+	irequrl = req.url;		// indexible req url for routing & rendering
+	if (irequrl[0] !== ".") { irequrl = `.${irequrl}`; }
 
 
-	if (req.url === "/") {
-		DARIS_INDEX.Render_Index_Page(req, res);
+	if (irequrl === "./") {
+		DARIS_INDEX.render_index_page(req, res);
 	}
 
 
-	else if (req.url.slice(0, 15) === "/question/write") {
+	else if (irequrl.slice(0, 16) === "./question/write") {
 		console.log("Write questions!");
 	}
 
 
-	else if (req.url.slice(0, ) === "/") { 
+	else if (irequrl.slice(0, 7) === "./daris") { 
 		FS.readFile(filePath, (err, fileContent)=>{
+			fileExtension = String(PATH.extname(irequrl)).toLowerCase();
+			fileContentType = LIBAR.mime_type(fileExtension); 
+			//console.log(`${filePath}    ${fileContentType}    ${fileExtension}`);
 			
-			else {
-				fileExtension = String(PATH.extname(filePath)).toLowerCase();
-				fileContentType = LIBAR.mime_type(fileExtension); //bcz: some MIME are 'text/css'
-				//console.log(`${filePath}    ${fileContentType}    ${fileExtension}`);
-				res.writeHead(200, {"Content-Type" : fileContentType});
-				res.end(fileContent);
-			}
+			res.writeHead(200, {"Content-Type" : fileContentType});
+			res.end(fileContent);
 		});
 	}
 
 
 	else { 
-		/* When req.url isn't a path on the server... */
-
 		res.writeHead(404);
 		res.end("404 Not Found. Page doesn't exist!"); 
 	}

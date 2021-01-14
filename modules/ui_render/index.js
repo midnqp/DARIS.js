@@ -1,4 +1,4 @@
-/* index.js																																												#
+/* index.js																																												 #
  * Do everything you need to render the homepage here 
  */
 
@@ -11,16 +11,13 @@ const LIBAR = require('../lib-AvoidRepitition.js');
 module.exports = {
 
 	Render_Index_Page: (req, res)=>{	
-		// using "./" in respect to DarisMainServer.js
-		FS.readFile('./daris/index.html', {encoding: 'utf-8'}, 
-		(err, indexHTML) => {
+		FS.readFile('./daris/index.html', {encoding: 'utf-8'}, (err, indexHTML) => {
 			if (err) throw err;
 
 			/* doing openly what frameworks do labelling as "render" */
+			LIBAR.exec_mysql("SELECT * FROM daris_ques ORDER BY ques_up DESC", render_trending_questions);
 
-			LIBAR.exec_mysql("SELECT * FROM daris_ques ORDER BY ques_up DESC", Render_Trending_Questions);
-
-			function Render_Trending_Questions(sql_results) {
+			function render_trending_questions(sql_results) {
 				var trQues = "<table><tbody>";		// Trending Questions
 				for (let i=0; i < sql_results.length; i++) {
 					trQues += "<tr><td>+" + sql_results[i].quesup + "&nbsp;&nbsp;</td>" + 
