@@ -1,20 +1,17 @@
-#                                                                          #
+#                                                                         #
 # vim: ts=2 sw=2 ft=sql et                                                  
 
 
------------------------------------------------------------
-                                                        
-     #                  "                  "         
-     #   mmm    mmmm   mmm    mmm        mmm    mmm  
- #####      #   #       #    #   "         #   #   " 
- #   #  m"""#   #       #     """m         #    """m 
- "#m##  "mm"#   #      mmm   "mmm"    #    #   "mmm" 
-                                           #         
-                                         ""          
------------------------------------------------------------
+----------------------------------------------------------
+                                                            
+    |                             
+  __|   __   ___   "   __      __"   __                       
+ '  |   __|  |  `  |  |__'       |  |__'                     
+ '__|  |__|  |     |  .__|  .    |  .__|                           
+                               '_|                           
+                                                                                                            ----------------------------------------------------------'
 
-Welcome to a Node.js implementation of DARIS.concept*. This project is a 
-proof-of-concept for ALHAMD*, demonstrating a deeply-beneficial design architecture, and a more meaningful opposition to OOP.
+Welcome to a Node.js implementation of DARIS.concept*. This project is a proof-of-concept for ALHAMD*, demonstrating a deeply-beneficial design architecture, and a more meaningful opposition to OOP.
 
 This implementation in Node.js may be a stern reply to it being attributed with "callback hell". So, a fun slogan would be: "callback done right".
 
