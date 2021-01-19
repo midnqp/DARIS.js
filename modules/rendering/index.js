@@ -6,12 +6,12 @@
 const MYSQL = require('mysql');
 const FS = require('fs');
 
-const LIBAR = require('../lib-AvoidRepitition.js');
+const LIBAR = require('../lib-avoidrepitition.js');
 
 module.exports = {
 
-	Render_Index_Page: (req, res)=>{	
-		FS.readFile('./daris/index.html', {encoding: 'utf-8'}, (err, indexHTML) => {
+	render_index_page: (req, res)=>{	
+		FS.readFile('./daris/index/index.html', {encoding: 'utf-8'}, (err, indexHTML) => {
 			if (err) throw err;
 
 			/* doing openly what frameworks do labelling as "render" */

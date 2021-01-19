@@ -16,7 +16,7 @@ require('http').createServer(daris_main_server).listen(8000);
 
 function daris_main_server(req, res) {
 	console.log(req.url);
-	irequrl = req.url;		// indexible req url for routing & rendering
+	irequrl = req.url;		// indexible req url
 	if (irequrl[0] !== ".") { irequrl = `.${irequrl}`; }
 
 
@@ -31,7 +31,7 @@ function daris_main_server(req, res) {
 
 
 	else if (irequrl.slice(0, 7) === "./daris") { 
-		FS.readFile(filePath, (err, fileContent)=>{
+		FS.readFile(irequrl, (err, fileContent)=>{
 			fileExtension = String(PATH.extname(irequrl)).toLowerCase();
 			fileContentType = LIBAR.mime_type(fileExtension); 
 			//console.log(`${filePath}    ${fileContentType}    ${fileExtension}`);

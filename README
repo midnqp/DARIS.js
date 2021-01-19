@@ -25,7 +25,7 @@ This implementation in Node.js may be a stern reply to it being attributed with 
                 -- project code structure
                 -- design principles
                 -- any further detailed info
-So, submit ideas/opinions there...just like ECMAScript, HTML, and W3C.
+So, submit ideas/opinions there...just like ECMAScript, HTML, and W3C. Plans & progress of the project: https://github.com/users/midnqp/projects/1
          
 
 Be sure to have fun contributing code here! Any contribution and constructive discussion is warmly welcome - this is an immensely paramount project.
@@ -131,7 +131,8 @@ _______ CODE STYLE _______
 [[ Each File ]]
   * Comment out the max line width, like this README, in the first line 
     of each file. Preferably 100 columns at max, and each line must not 
-    be longer than that.
+    be longer than that. Only for README: 77 columns, because longer 
+    lines and indentations are gonna break.
   * No, do not split a feature/module too much. 
   * A file can be big, it "must do one thing, and do it properly"
           `daris/profile/profile.html`
