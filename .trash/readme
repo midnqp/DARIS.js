@@ -10,8 +10,7 @@
                                '_|                           
                                                                                                             ----------------------------------------------------------'
 
-
-DARIS is an ask-and-answer platform for sharing knowledge. 
+Welcome to a Node.js implementation of DARIS.concept*. This project is a proof-of-concept for ALHAMD*, demonstrating a deeply-beneficial design architecture, and a more meaningful opposition to OOP.
 
 This implementation in Node.js may be a stern reply to it being attributed with "callback hell". So, a fun slogan would be: "callback done right".
 
