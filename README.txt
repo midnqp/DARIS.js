@@ -1,19 +1,20 @@
-#                                                                    #
-# vim: ts=2 sw=2 ft=sql et                                                  
 
-----------------------------------------------------------
-                                                            
-    |                             
-  __|   __   ___   "   __      __"   __                       
- '  |   __|  |  `  |  |__'       |  |__'                     
- '__|  |__|  |     |  .__|  .    |  .__|                           
-                               '_|                           
-                                                                                                            ----------------------------------------------------------'
+______    ___   ______   _____   _____         _       
+|  _  \  / _ \  | ___ \ |_   _| /  ___|       (_)      
+| | | | / /_\ \ | |_/ /   | |   \ `--.         _   ___ 
+| | | | |  _  | |    /    | |    `--. \       | | / __|
+| |/ /  | | | | | |\ \   _| |_  /\__/ /  _    | | \__ \
+|___/   \_| |_/ \_| \_|  \___/  \____/  (_)   | | |___/
+                                             _/ |      
+                                            |__/                                                   
 
+DARIS is an ONE-STOP questioning and answering platform for sharing knowledge, ...
+			- and, not causing your eyes to strain
+			- and, really behaving open-source & friendly -- for aspiring wizards (programmers)
+			- and, for Grand Wizards needing info quick
 
-DARIS is an ask-and-answer platform for sharing knowledge. 
+In DARIS, a question does not have multiple answers. There is only one "perfect" and "most efficient" answer, and people merge their knowledge to that answer. If one believes his answer is perfect as well, he might add his. 
 
-This implementation in Node.js may be a stern reply to it being attributed with "callback hell". So, a fun slogan would be: "callback done right".
 
 
 [ *ALHAMD ] - A vanilla-framework designed for those who "hate frameworks with a passion". This project is an implementation of that framework. (https://github.com/midnqp/alhamd-vanilla) 
@@ -31,7 +32,7 @@ Be sure to have fun contributing code here! Any contribution and constructive di
 
 
 
-_______ GETTING STARTED  _______
+_______ DEVELOPMENT: GETTING STARTED  _______
 
 [[ STEP 1 ]  SETTING UP MYSQL DATABASE FOR `DARIS.JS`  ]
 
