@@ -16,6 +16,26 @@ In DARIS, a question does not have multiple answers. There is only one "perfect"
 
 
 
+  DARIS.js
+  |--- DarisMainServer.js
+  |-- daris
+      |-- index
+          |-- index.html
+      |-- question
+          |-- view.html
+          |-- write.html
+      |-- profile
+          |-- profile.html
+  |-- modules
+      |-- lib-avoidrepitition.js
+      |-- rendering
+          |-- index.js
+          |-- question_view.js
+          |-- question_write.js
+          |-- profile.js
+
+
+
 
 
 _______ DEVELOPMENT: GETTING STARTED  _______

@@ -1,7 +1,12 @@
+table { background-color:#eaeaea; margin:-20px 0px; width:inherit;}
 tr{
-	font-family: Hack, monospace; /*border:1px solid black;*/font-size:13px; line-height:12px; 
+	font-family: Hack, monospace; /*border:1px solid black;*/ 
+	font-size:13px; line-height:12px; 
 }
 /*table{border-collapse:collapse;}*/
+
+#trques { text-decoration:none; color:#2d2d2d; }
+#trques:hover { color:blue; } /*#5c5cff*/
 
 .sectheader {
 	font-family:'Liberation Mono'; border:1px solid black; padding:0px 16px ; 
