@@ -1,22 +1,26 @@
-/* DarisMainServer.js
-**/
-
-const QS = require('querystring');
-const FS = require('fs');
-const PATH = require('path');
-const MYSQL = require('url');
-
-const LIBAR = require('./modules/lib-avoidrepitition.js');
-const DARIS_INDEX = require('./modules/rendering/index.js');
+const qs = require('querystring');
+const fs = require('fs');
+const path = require('path');
+const mysql = require('url');
+const ar = require('./model/lib_avoidrepetition.js');
 
 
-require('http').createServer(daris_main_server).listen(8000);
+const routes = {
+	 		: require('./model/'),
+
+};
+require('http').createServer(server).listen(8000);
 
 
 
-function daris_main_server(req, res) {
-	console.log(req.url);
-	irequrl = req.url;		// indexible req url
+
+function server(req, res) {
+	const U = req.url;				// U = The requested URL
+	if(U[0] !== '.') { U = `.${U}`; }
+	
+
+
+
 	if (irequrl[0] !== ".") { irequrl = `.${irequrl}`; }
 
 

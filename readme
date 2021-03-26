@@ -1,0 +1,133 @@
+.
+| controller.js
+| view
+	| index.html
+	| login.html
+	| register.html
+	| blog-view.html
+	| blog-write.html
+	| question-view.html
+	| question-write.html
+	| profile-view.html
+	| profile-edit.html
+	| profile-settings.html
+	| comp
+		| 404.html
+		| change.js
+		| common.css
+		| footer.html
+		| head.html
+		| navbar.html
+		| sidebar.html
+		| misc.css
+	| __template__
+| model
+	| ctrl-lib.js
+	| ctrl-ajax.js
+	| index.js
+	| question-view.js
+	| question-write.js
+	| login.js
+	| register.js
+	| profile-view.js
+	| profile-edit.js
+	| profile-settings.js
+
+
+
+
+
+
+
+
+--------PRINCIPLES--------
+* Least polymorphism.
+
+* The aim is to formulate & contribute to alhamd-vanilla to build applications in 03 days. So, we provide toolings: (1) EmbeddedNodejs. {thought#1}
+
+* If you don't know what more shall be done to a project, then, well, go take a walk!
+
+* Try enclosing code in functions. That allows reuse. Try to invoke many of them under a certain function. That helps to recreate the thought-process easy.
+
+
+----CODE AND PLANS----
+** `./blog/write/` requires userrole=admin. So if userrole != admin, show 404.
+** Remember? Use variables in an array like `globals['gvar1'] = 77;`. In Node.js, you can store functions too, remember?
+`const globals = {
+	var1		:		1,
+	fun1		: function(param1, param2) {... return x;}
+};`
+
+
+----DESIGN OF DARISONE----
+* Font is always Monospace. Maintain variants, of course. Least solid color fills. No elements with enclosed color-fills, like <button>. Forget 'em. Just do "texts" and onclick and hover.
+
+
+
+
+
+
+
+
+--------GETTING STARTED--------
+
+
+--DATABASE--
+
+```````````````````````````````
+create database `daris`;
+use `daris`;
+
+
+create table `ques`
+(
+    `qid`    INT NOT NULL auto_increment,
+    `uid`    INT NOT NULL,
+    `qtitle` VARCHAR(70) NOT NULL,
+    `qup`    INT NOT NULL,
+    `qdown`  INT NOT NULL,
+    `qtime`  DATETIME NOT NULL,
+    PRIMARY KEY (`qid`)
+) ENGINE = MyISAM;
+
+
+create table `ans`
+(
+    `aid`    INT NOT NULL auto_increment,
+    `uid`    INT NOT NULL,
+    `atext`  VARCHAR(5000) NOT NULL,
+    `aup`    INT NOT NULL,
+    `adown`  INT NOT NULL,
+    `atime`  DATETIME NOT NULL,
+    PRIMARY KEY (`aid`)
+) ENGINE = MyISAM;
+
+
+# How to store the list of qid?
+#-> space-separated 
+#aqids = All (asked) Question IDs
+#aaids = All (answered) Answer IDs
+create table `users`
+(
+    `uid`       INT NOT NULL auto_increment,
+		`role`			VARCHAR(30) NOT NULL,
+    `aqids`      VARCHAR NOT NULL,
+    `aaids` VARCHAR NOT NULL,
+    PRIMARY KEY (`user_id`)
+) ENGINE = MyISAM;
+
+```````````````````````````````
+
+
+
+
+
+
+
+
+--------THOUGHTS--------
+[1] I really do not want to mess my code up with HTML like PHP. It looks disgusting. Express.render(view, data) really does "replace" strings (aha!!), but in a systematic & messy way.
+`enodejs` would:
+		- make HTML files big. 
+		- make very easy to build webpages specific for users/questions/answers.
+		- make me think smart & calm.
