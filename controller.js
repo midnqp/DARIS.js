@@ -2,7 +2,7 @@ const qs = require('querystring');
 const fs = require('fs');
 const path = require('path');
 const mysql = require('url');
-const ar = require('./model/lib_avoidrepetition.js');
+const ar = require('./model/ctrl-lib.js');
 
 
 const routes = {
@@ -21,24 +21,10 @@ function server(req, res) {
 
 
 
-	if (irequrl[0] !== ".") { irequrl = `.${irequrl}`; }
-
-
-	if (irequrl === "./") {
-		DARIS_INDEX.render_index_page(req, res);
-	}
-
-
-	else if (irequrl.slice(0, 16) === "./question/write") {
-		console.log("Write questions!");
-	}
-
-
 	else if (irequrl.slice(0, 7) === "./daris") { 
 		FS.readFile(irequrl, (err, fileContent)=>{
 			fileExtension = String(PATH.extname(irequrl)).toLowerCase();
 			fileContentType = LIBAR.mime_type(fileExtension); 
-			//console.log(`${filePath}    ${fileContentType}    ${fileExtension}`);
 			
 			res.writeHead(200, {"Content-Type" : fileContentType});
 			res.end(fileContent);
@@ -48,7 +34,7 @@ function server(req, res) {
 
 	else { 
 		res.writeHead(404);
-		res.end("404 Not Found. Page doesn't exist!"); 
+		res.end("<code>404 Not Found. Page doesn't exist!</code>"); 
 	}
 }
 

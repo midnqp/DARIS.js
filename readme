@@ -22,8 +22,8 @@
 		| misc.css
 	| __template__
 | model
-	| ctrl-lib.js
-	| ctrl-ajax.js
+	| lib.js
+	| ajax.js
 	| index.js
 	| question-view.js
 	| question-write.js

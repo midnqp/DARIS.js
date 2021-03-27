@@ -21,8 +21,8 @@ module.exports = {
 		connection.end();
 	},
 
+	
 	mime_type: function(fileExtension) {	
-	/* Returns MIME-type for any file extension. */
 		var mimes = {
         '.html': 'text/html',
         '.js': 'text/javascript',
@@ -40,8 +40,6 @@ module.exports = {
         '.eot': 'application/vnd.ms-fontobject',
         '.otf': 'application/font-otf',
         '.wasm': 'application/wasm'
-
-				//add more at will, please
 		};
 		return mimes[fileExtension] || 'application/octet-stream';
 	},
