@@ -111,8 +111,8 @@ create table `users`
 (
     `uid`       INT NOT NULL auto_increment,
 		`role`			VARCHAR(30) NOT NULL,
-    `aqids`      VARCHAR NOT NULL,
-    `aaids` VARCHAR NOT NULL,
+    `aqids`     VARCHAR NOT NULL,
+    `aaids`     VARCHAR NOT NULL,
     PRIMARY KEY (`user_id`)
 ) ENGINE = MyISAM;
 
@@ -126,8 +126,12 @@ create table `users`
 
 
 --------THOUGHTS--------
-[1] I really do not want to mess my code up with HTML like PHP. It looks disgusting. Express.render(view, data) really does "replace" strings (aha!!), but in a systematic & messy way.
+[1] ELIMINATES "MODEL" LAYER OF MVC.
+I really do not want to mess my code up with HTML like PHP. It looks disgusting. Express.render(view, data) really does "replace" strings (aha!!), but in a systematic & messy way.
 `enodejs` would:
 		- make HTML files big. 
 		- make very easy to build webpages specific for users/questions/answers.
 		- make me think smart & calm.
+
+[2] LOGIN + SESSION MANAGER
+Store a cookie, when just logged in. Whenever it is required to make a query to the db, in that little scope, make the check if the current user is logged, and his user-role.

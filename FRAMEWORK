@@ -1,0 +1,16 @@
+Copyright 2021 Muhammad Bin Zafar <midnightquantumprogrammer@gmail.com>. All right reserved.
+
+This file contains the important infrastructural changes made to vanilla Nodejs.
+
+
+
+
+
+
+
+
+[/controller.js] The objects `IncomingMessage` & `ServerResponse` are combined into one object `reqres`.
+[/controller.js] res.resder(filename) {res.writeHead, res.end}
+
+
+[/model/lib.js] view() 
