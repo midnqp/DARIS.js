@@ -1,4 +1,4 @@
 lib = require("./model/lib.js")
 
 
-console.log(lib.mime("/etasdf/"));
+console.log(new lib._view("./__learn__").__PromiseReadFileAsync__());

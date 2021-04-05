@@ -17,6 +17,7 @@ module.exports = {
 const fs = require("fs");
 const smysql = require("sync-mysql");
 const path = require("path");
+const {promisify} = require("util");
 
 
 function route(Routing, pubviews, reqres) {
@@ -169,3 +170,40 @@ function is_public_viewable(U, arrPubview) {
 	}
 	return false;
 }
+
+
+
+class _view {
+	constructor(filename) {
+		this.filename = filename;
+	}
+	//valueOf() {return this.view;}
+	__view__() {
+		var html = fs.readFileSync(this.filename, 'utf8');
+		var ts = "<%";
+		var te = "%>";
+		var i = 0;
+		var counter = 0; //loop-counter;
+		if (html.includes(ts)) {
+			var noab = (html.match(eval(`/${ts}/g`))).length; 	//number of alhamd-blocks
+			while (counter < noab) {
+				var j = html.indexOf(ts);
+				i = html.indexOf(te);
+				var block = html.slice(j, i + ts.length);
+				var ret = eval(block.slice(ts.length, -te.length)); //block excluding ts, te
+				if (ret === undefined) { ret = "";	}
+				html = html.replace(block, ret);
+				counter++;
+			}
+		}
+		return html;
+	}
+	async __PromiseReadFileAsync__() {
+		var prfa = promisify(fs.readFile);
+		return await prfa(this.filename, 'utf8').then(content=>console.log(content));
+	}
+}
+
+
+
+module.exports._view = _view;
