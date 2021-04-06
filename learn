@@ -12,6 +12,6 @@ rejc();   //then rejc() is ignored...
 
 p.then(
 (value)=>{console.log("success")}, //if value is found...
-(error)=>{console.log("error")}    //error isn't present.
+(error)=>{console.log("error")}    //then error isn't present.
 )
 
