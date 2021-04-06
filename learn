@@ -1,0 +1,17 @@
+++++LENGTH OF A JS OBJECT++++
+console.log(`Length: ${Object.keys(Routing).length}`);
+
+
+
+
+++++JAVASCRIPT PROMISE++++
+p = new Promise((resl, rejc)=>{
+resl();   //If resl() is fulfilled...
+rejc();   //then rejc() is ignored...
+})
+
+p.then(
+(value)=>{console.log("success")}, //if value is found...
+(error)=>{console.log("error")}    //error isn't present.
+)
+

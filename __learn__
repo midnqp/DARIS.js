@@ -1,2 +1,0 @@
-++++ Length of a JS object ++++
-console.log(`Length: ${Object.keys(Routing).length}`);

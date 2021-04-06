@@ -1,4 +1,4 @@
 lib = require("./model/lib.js")
 
 
-console.log(new lib._view("./__learn__").__PromiseReadFileAsync__());
+console.log(new lib.view("./__learn__").__PromiseReadFileAsync__());

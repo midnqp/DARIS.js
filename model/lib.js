@@ -3,9 +3,10 @@ module.exports = {
 	dbq: function(sql){return conn.query(sql);},
 	mime: mime,
 	route : route,
-	view: view,
+//	view: _view,
 	prepare_res_object: prepare_res_object,
 }
+//classes are exported at the end of the file.
 
 
 
@@ -55,6 +56,53 @@ function route(Routing, pubviews, reqres) {
 
 
 
+class _view {
+	constructor(filename) {
+		this.filename = filename;
+	}
+
+
+	newpromise() {
+		var p = new Promise();
+	}
+
+
+	__PromiseReadFileAsync__() {
+		var prfa = promisify(fs.readFile);
+		prfa(this.filename, 'utf8')
+			.then((output)=>{return 123});
+	}
+	
+
+	__view__() {
+		var html = async ()=> {
+			const file = await this.__PromiseReadFileAsync__;
+			console.log(file);
+		}
+		html();
+		var ts = "<%";
+		var te = "%>";
+		var i = 0;
+		var counter = 0; //loop-counter;
+		if (html.includes(ts)) {
+			var noab = (html.match(eval(`/${ts}/g`))).length; 	//number of alhamd-blocks
+			while (counter < noab) {
+				var j = html.indexOf(ts);
+				i = html.indexOf(te);
+				var block = html.slice(j, i + ts.length);
+				var ret = eval(block.slice(ts.length, -te.length)); //block excluding ts, te
+				if (ret === undefined) { ret = "";	}
+				html = html.replace(block, ret);
+				counter++;
+			}
+		}
+		return html;
+	}
+}
+
+
+
+
 var conn = new smysql ({
 	host: "localhost",
 	user: "muhammad",
@@ -94,12 +142,12 @@ function mime(filename) {
 
 
 
-function view(filename) {
-	/* Given a HTML filename containing Alhamdjs codeblocks,
-	 * Reads the file, and renders the Node.js code embedded within.
-	 *
-	 * Returns contents of the file.
-	 */
+/*function view(filename) {
+	// Given a HTML filename containing Alhamdjs codeblocks,
+	// Reads the file, and renders the Node.js code embedded within.
+	//
+	// Returns contents of the file.
+	
 	html = fs.readFileSync(filename, 'utf8');
 	ts = "<%";
 	te = "%>";
@@ -118,7 +166,7 @@ function view(filename) {
 		}
 	}
 	return html;
-}
+}*/
 
 
 
@@ -138,7 +186,7 @@ function prepare_res_object(res) {
 	res.render = function (filename) {
 		console.log(`[res.render] ${filename}`);
 		res.writeHead(200, {"Content-Type" : mime(filename)});
-		res.end(view(filename), 'utf8');
+		res.end(new _view(filename).__view__(), 'utf8');
 	}
 
 
@@ -173,37 +221,5 @@ function is_public_viewable(U, arrPubview) {
 
 
 
-class _view {
-	constructor(filename) {
-		this.filename = filename;
-	}
-	//valueOf() {return this.view;}
-	__view__() {
-		var html = fs.readFileSync(this.filename, 'utf8');
-		var ts = "<%";
-		var te = "%>";
-		var i = 0;
-		var counter = 0; //loop-counter;
-		if (html.includes(ts)) {
-			var noab = (html.match(eval(`/${ts}/g`))).length; 	//number of alhamd-blocks
-			while (counter < noab) {
-				var j = html.indexOf(ts);
-				i = html.indexOf(te);
-				var block = html.slice(j, i + ts.length);
-				var ret = eval(block.slice(ts.length, -te.length)); //block excluding ts, te
-				if (ret === undefined) { ret = "";	}
-				html = html.replace(block, ret);
-				counter++;
-			}
-		}
-		return html;
-	}
-	async __PromiseReadFileAsync__() {
-		var prfa = promisify(fs.readFile);
-		return await prfa(this.filename, 'utf8').then(content=>console.log(content));
-	}
-}
 
-
-
-module.exports._view = _view;
+module.exports.view = _view;
