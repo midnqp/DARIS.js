@@ -1,9 +1,8 @@
 module.exports = {
 	blockreplace: blockreplace,
-	dbq: function(sql){return conn.query(sql);},
-	mime: mime,
+	dbq: (sql)=>{return conn.query(sql);},
+	mimeof: mime,
 	route : route,
-//	view: _view,
 	prepare_res_object: prepare_res_object,
 }
 //classes are exported at the end of the file.
@@ -11,26 +10,21 @@ module.exports = {
 
 
 
-
-
-
-
-const fs = require("fs");
-const smysql = require("sync-mysql");
-const path = require("path");
-const {promisify} = require("util");
+const fs = require("fs")
+const smysql = require("sync-mysql")
+const path = require("path")
 
 
 function route(Routing, pubviews, reqres) {
-	U = reqres.req.url;       //U -> client-requested URL
-	model = Routing[U];		    //web resources, or a model
+	U = reqres.req.url       //U -> client-requested URL
+	model = Routing[U]		    //web resources, or a model
 
 	
 	if (U.endsWith("/")===false) {
 		if (is_public_viewable(U, pubviews)) {
 			//Web resources from directory pubviews[] can be reliably sent
-			if (U.startsWith("/view/")) {reqres.res.rwend(`.${U}`);}
-			else {reqres.res.rwend(`${U}`);}
+			if (U.startsWith("/view/")) {reqres.res.rwend(`.${U}`)}
+			else {reqres.res.rwend(`${U}`)}
 		}
 		else if (U.startsWith("/view/")===false) {
 			//Routes be '/contact/' not '/contact'
@@ -115,7 +109,7 @@ var conn = new smysql ({
 
 function mime(filename) {
 	fileExtension = String(path.extname(filename)).toLowerCase();
-	var mimesAll = {
+	var MimesAll = {
 			'.html': 'text/html',
 			'.css' : 'text/css',
 			'.md'  : 'text/markdown',
@@ -136,7 +130,7 @@ function mime(filename) {
 			'.otf' : 'application/font-otf',
 			'.wasm': 'application/wasm'
 	};
-	return mimesAll[fileExtension] || 'application/octet-stream';
+	return MimesAll[fileExtension] || 'application/octet-stream';
 }
 
 

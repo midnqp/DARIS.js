@@ -1,4 +1,5 @@
-lib = require("./model/lib.js")
+lib = require("./lib.js")
+console.log(lib.dbq("SHOW DATABASES;"))
 
 
 

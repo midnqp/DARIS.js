@@ -8,6 +8,7 @@ function server(req, res) {
 	res = lib.prepare_res_object(res);
 	
 	console.log(`[U] ${req.url}`);
+
 	Routing = {
 		//href            : model file location
 		"/"								: "./View/index.html",
@@ -16,6 +17,8 @@ function server(req, res) {
 		"/blog/"          : "./View/blog.html",
 		"/contact/"       : "./View/contact.html",
 	}
+	
 	PublicView = ["/View/comp/", "/favicon.ico"];
+	
 	lib.route(Routing, PublicView, {req, res});
 }
