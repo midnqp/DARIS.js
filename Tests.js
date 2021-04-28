@@ -1,5 +1,6 @@
-lib = require("./lib.js")
-console.log(lib.dbq("SHOW DATABASES;"))
+lib = require("./Lib.js")
+a = lib.dbq("SHOW DATABASES")
+console.log(a)
 
 
 

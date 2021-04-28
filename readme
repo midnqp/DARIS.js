@@ -1,0 +1,5 @@
+* 'common.js' files contains some operations.
+* After they grow, if they become messy, I'll structure them.
+
+* In development, I'll have all CSS in one file, with filenames commented. Before production, I'll create separate CSS files specific for each webpage, if they grow too big.
+* And I'm not afraid about it, because I have 'common.js', which can be used to add the CSS file of the webpage, to <head> -- depending upon 'location.href'.

@@ -1,20 +1,9 @@
-<html>
-<head>
-	<title>DARIS - Ask a question</title>
-	<link rel="stylesheet" href="/components/style1.css">
-	<style>
-		:root { --askquesw: 40rem;  }
-	</style>
-</head>
+<script src="/View/comp/common.js"></script>
 
-<body>
-	<script src="/components/navbar.js"></script>
-	<div id=main style="margin: var(--nav-height) 0px 0px 0px; ">
-		<form id=askques method=post style="margin:100px;">
-			<input name="questitle" style="display:block; width:var(--askquesw)" class="no-padmarg" type=text placeholder="Title of question">
-			<textarea name="ques" style="width:var(--askquesw); height:275px; " form=askques placeholder="Explain what is the problem, and describe how to reproduce it."></textarea>
-			<input type="submit" value="Ask!">
-		</form>
-	</div>
-</body>
-</html>
+
+<form id=form-ques-ask>
+	<input class="c" name="questitle" type=text placeholder="Title of question">
+	<textarea class="c" name="ques" form=askques placeholder="Explain what is the problem, and describe how to reproduce it."></textarea>
+
+	<input class="c" name="quesask" type="button" value="Ask!">
+</form>

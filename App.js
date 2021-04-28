@@ -1,4 +1,4 @@
-const lib = require('./lib.js');
+const lib = require('./Lib.js');
 
 
 require('http').createServer(server).listen(8000);
