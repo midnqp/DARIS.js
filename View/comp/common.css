@@ -27,7 +27,7 @@ input[name="quesask"] {
 	--nav-height: 50px;
 }
 
-
+* {font-family: Monospace;}
 body {
 	padding-top: var(--nav-height);
 }
