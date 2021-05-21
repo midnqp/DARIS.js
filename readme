@@ -1,11 +1,33 @@
 CURRENT STATUS
-
 - Embryonic
+- "Early Research"
+
+
 
 TECHNOLOGIES
-
 - Node.js
 
-TODO
 
-- rewrite substantial portions of Lib.js from readFileSync() 
+
+TODO
+-- main aim is to: 
+    - provide the infrastructure to merge knowledge 
+into an existing answer
+    - maintain version controlling with merged answers
+and allow upvoting and downvoting on the tree
+-- rewrite substantial portions of Lib.js - discard 
+readFileSync()
+-- to build a lightweight & performant framework,
+contribute to Midnqp/Frameworkless.
+    - Don't repeat yourself. A framework that ensures 
+maximum code reuse.
+    - Midnqp/Frameworkless will provide auto-mailing, 
+cron, cumulative updates
+    - Standard Laravel features, or React features like
+DOM changes' pre-calculations, pushState.
+-- UI will be monospaced & lightweight
+
+
+
+CONTRIBUTIONS
+Any idea/contribution is always warmly welcomed.
